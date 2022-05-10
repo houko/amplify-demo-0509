@@ -1,19 +1,28 @@
 import type {NextPage} from 'next'
-import classNames from "classnames";
+import {useEffect, useState} from "react";
+import {Todo} from "../src/types/types";
 
 const Home: NextPage = () => {
 
-    const handleClick = () => {
-        alert("clicked");
-    }
+    const [todos, setTodos] = useState<Todo[]>([]);
+    const [count, setCount] = useState(0)
+
+
+    useEffect(() => {
+
+
+    }, [count])
+
+
+
+    // const fetchTodos = async () => {
+    //     const todoData = await API.graphql(graphqlOperation(listTodos))
+    // }
+
 
     return (
         <div>
-            <button
-                onClick={handleClick}
-                className={classNames('p-2','m-32','border','border-blue-800')}>
-                click me
-            </button>
+
         </div>
     )
 }
