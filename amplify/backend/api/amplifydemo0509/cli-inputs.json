@@ -3,21 +3,10 @@
   "serviceConfiguration": {
     "apiName": "amplifydemo0509",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-be70c876-9209-4951-9094-20719ba1a3e4/amplify/backend/api/amplifydemo0509/schema.graphql",
+    "gqlSchemaPath": "/Users/xiaomo/Workspace/cloud/amplify-demo-0509/amplify/backend/api/amplifydemo0509/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "keyDescription": "api key description",
-      "expirationTime": 30
-    },
-    "conflictResolution": {
-      "defaultResolutionStrategy": {
-        "type": "AUTOMERGE"
-      }
-    },
-    "additionalAuthTypes": [
-      {
-        "mode": "AWS_IAM"
-      }
-    ]
+      "expirationTime": 7
+    }
   }
 }
