@@ -86,6 +86,7 @@ const Home: NextPage = () => {
         const todo = {
             name: `todo${suffix}`,
             description: `description${suffix}`,
+            tag:`new_tag-${suffix}`,
         }
         try {
             await API.graphql(graphqlOperation(createTodo, {input: todo}));
@@ -109,6 +110,7 @@ const Home: NextPage = () => {
             id: todo.id,
             name: `${todo.name} - ${suffix}`,
             description: `${todo.description} - ${suffix}`,
+            tag:`updated_tag-${suffix}`,
         }
 
         try {
@@ -135,6 +137,7 @@ const Home: NextPage = () => {
                                  className={classNames('border', 'w-full', 'my-3', 'p-5')}>
                                 <h3>{todo.name}</h3>
                                 <p>{todo.description}</p>
+                                <p>{todo.tag}</p>
 
                                 <button
                                     className={classNames('border', 'px-3', 'py-1', 'm-2')}

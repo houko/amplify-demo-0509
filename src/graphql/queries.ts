@@ -7,6 +7,7 @@ export const getTodo = /* GraphQL */ `
     getTodo(id: $id) {
       id
       name
+      tag
       description
       createdAt
       updatedAt
@@ -23,6 +24,7 @@ export const listTodos = /* GraphQL */ `
       items {
         id
         name
+        tag
         description
         createdAt
         updatedAt
