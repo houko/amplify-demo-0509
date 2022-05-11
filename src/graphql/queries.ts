@@ -33,3 +33,36 @@ export const listTodos = /* GraphQL */ `
     }
   }
 `;
+export const getNews = /* GraphQL */ `
+  query GetNews($id: ID!) {
+    getNews(id: $id) {
+      id
+      title
+      author
+      summary
+      content
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listNews = /* GraphQL */ `
+  query ListNews(
+    $filter: ModelNewsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNews(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        author
+        summary
+        content
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

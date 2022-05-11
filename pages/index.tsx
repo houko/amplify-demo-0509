@@ -71,7 +71,7 @@ const Home: NextPage = () => {
     const fetchTodos = async () => {
         try {
             const todoData = await API.graphql(graphqlOperation(listTodos)) as ListTodos;
-            const todos = todoData.data.listTodos.items.sort((a: Todo, b: Todo) =>
+            const todos = todoData.data.listNews.items.sort((a: Todo, b: Todo) =>
                 Date.parse(b.createdAt) - Date.parse(a.createdAt)
             )
             setTodos(todos);

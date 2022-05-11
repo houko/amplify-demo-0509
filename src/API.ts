@@ -79,6 +79,47 @@ export type DeleteTodoInput = {
   id: string,
 };
 
+export type CreateNewsInput = {
+  id?: string | null,
+  title: string,
+  author?: string | null,
+  summary?: string | null,
+  content?: string | null,
+};
+
+export type ModelNewsConditionInput = {
+  title?: ModelStringInput | null,
+  author?: ModelStringInput | null,
+  summary?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  and?: Array< ModelNewsConditionInput | null > | null,
+  or?: Array< ModelNewsConditionInput | null > | null,
+  not?: ModelNewsConditionInput | null,
+};
+
+export type News = {
+  __typename: "News",
+  id: string,
+  title: string,
+  author?: string | null,
+  summary?: string | null,
+  content?: string | null,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateNewsInput = {
+  id: string,
+  title?: string | null,
+  author?: string | null,
+  summary?: string | null,
+  content?: string | null,
+};
+
+export type DeleteNewsInput = {
+  id: string,
+};
+
 export type ModelTodoFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
@@ -108,6 +149,23 @@ export type ModelIDInput = {
 export type ModelTodoConnection = {
   __typename: "ModelTodoConnection",
   items:  Array<Todo | null >,
+  nextToken?: string | null,
+};
+
+export type ModelNewsFilterInput = {
+  id?: ModelIDInput | null,
+  title?: ModelStringInput | null,
+  author?: ModelStringInput | null,
+  summary?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  and?: Array< ModelNewsFilterInput | null > | null,
+  or?: Array< ModelNewsFilterInput | null > | null,
+  not?: ModelNewsFilterInput | null,
+};
+
+export type ModelNewsConnection = {
+  __typename: "ModelNewsConnection",
+  items:  Array<News | null >,
   nextToken?: string | null,
 };
 
@@ -162,6 +220,60 @@ export type DeleteTodoMutation = {
   } | null,
 };
 
+export type CreateNewsMutationVariables = {
+  input: CreateNewsInput,
+  condition?: ModelNewsConditionInput | null,
+};
+
+export type CreateNewsMutation = {
+  createNews?:  {
+    __typename: "News",
+    id: string,
+    title: string,
+    author?: string | null,
+    summary?: string | null,
+    content?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateNewsMutationVariables = {
+  input: UpdateNewsInput,
+  condition?: ModelNewsConditionInput | null,
+};
+
+export type UpdateNewsMutation = {
+  updateNews?:  {
+    __typename: "News",
+    id: string,
+    title: string,
+    author?: string | null,
+    summary?: string | null,
+    content?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteNewsMutationVariables = {
+  input: DeleteNewsInput,
+  condition?: ModelNewsConditionInput | null,
+};
+
+export type DeleteNewsMutation = {
+  deleteNews?:  {
+    __typename: "News",
+    id: string,
+    title: string,
+    author?: string | null,
+    summary?: string | null,
+    content?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type GetTodoQueryVariables = {
   id: string,
 };
@@ -200,6 +312,46 @@ export type ListTodosQuery = {
   } | null,
 };
 
+export type GetNewsQueryVariables = {
+  id: string,
+};
+
+export type GetNewsQuery = {
+  getNews?:  {
+    __typename: "News",
+    id: string,
+    title: string,
+    author?: string | null,
+    summary?: string | null,
+    content?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListNewsQueryVariables = {
+  filter?: ModelNewsFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListNewsQuery = {
+  listNews?:  {
+    __typename: "ModelNewsConnection",
+    items:  Array< {
+      __typename: "News",
+      id: string,
+      title: string,
+      author?: string | null,
+      summary?: string | null,
+      content?: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type OnCreateTodoSubscription = {
   onCreateTodo?:  {
     __typename: "Todo",
@@ -231,6 +383,45 @@ export type OnDeleteTodoSubscription = {
     name: string,
     tag?: string | null,
     description?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateNewsSubscription = {
+  onCreateNews?:  {
+    __typename: "News",
+    id: string,
+    title: string,
+    author?: string | null,
+    summary?: string | null,
+    content?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateNewsSubscription = {
+  onUpdateNews?:  {
+    __typename: "News",
+    id: string,
+    title: string,
+    author?: string | null,
+    summary?: string | null,
+    content?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteNewsSubscription = {
+  onDeleteNews?:  {
+    __typename: "News",
+    id: string,
+    title: string,
+    author?: string | null,
+    summary?: string | null,
+    content?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,

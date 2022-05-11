@@ -8,3 +8,12 @@ type Todo @model {
     tag:String
     description: String
 }
+
+
+type News @model {
+    id: ID!
+    title: String!
+    author: String
+    summary:String
+    content: String
+}
